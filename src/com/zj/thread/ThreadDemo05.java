@@ -8,6 +8,7 @@ class MyThreadDemo implements Runnable {
     @Override
     public void run() {
         for (int i = 0; i < 10; i++) {
+            //同步代码块
 //            synchronized (this) {
 //                if (ticket > 0) {
 //                    try {
@@ -23,6 +24,7 @@ class MyThreadDemo implements Runnable {
         }
     }
 
+    //同步方法
     public synchronized void tell() {
         if (ticket > 0) {
             try {
@@ -35,6 +37,7 @@ class MyThreadDemo implements Runnable {
     }
 }
 public class ThreadDemo05 {
+    //主方法
     public static void main(String[] args) {
         MyThreadDemo m = new MyThreadDemo();
         Thread t1 = new Thread(m);
@@ -43,7 +46,5 @@ public class ThreadDemo05 {
         t1.start();
         t2.start();
         t3.start();
-
-
     }
 }
